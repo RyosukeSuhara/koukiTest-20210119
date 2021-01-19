@@ -24,16 +24,24 @@ int main()
     int judgeResult;
     int damageNum;
 
+    //プレイヤーにステータスを決めてもらう
+    player.DividedStatus();
+
+    //勝負がつくまでループする
     while (true) {
+        //お互いのステータスを表示する
         player.ShowStatusPlayer();
         cpu.ShowStatusCPU();
 
+        //お互いの手を決定する
         playerHund = player.ChooseHund();
         cpuHund = cpu.AutoHund();
 
+        //お互いの出した手を表示する
         player.ShowHundPlayer(playerHund);
         cpu.ShowHundCPU(cpuHund);
 
+        //じゃんけんの勝敗判定をする
         judgeResult = judgement.Buttle(player.ChangeNum(playerHund), cpu.ChangeNum(cpuHund));
 
         if (judgeResult == 1) {
@@ -48,6 +56,7 @@ int main()
             judgement.HundDraw();
         }
 
+        //どちらかのHPが０になっていたら終了
         if (player.hp < 0) {
             judgement.CPUWin();
             break;
