@@ -57,11 +57,11 @@ int main()
         }
 
         //どちらかのHPが０になっていたら終了
-        if (player.hp < 0) {
+        if (player.hp <= 0) {
             judgement.CPUWin();
             break;
         }
-        else if (cpu.hp < 0) {
+        else if (cpu.hp <= 0) {
             judgement.PlayerWin();
             break;
         }

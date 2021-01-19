@@ -36,21 +36,30 @@ Charactor::CharactorHund CPU::AutoHund() {
 }
 
 int CPU::CPUAttack(CharactorHund KindOfWinnerHund) {
+	srand(time(NULL));
+	int critical = rand() % 10;
+	int criticalBuff = 1;
+
 	cout << endl;
 	cout << "相手の攻撃！" << endl;
+
+	if (critical == 7) {
+		cout << "会心の一撃だ！" << endl;
+		criticalBuff = 2;
+	}
 	if (KindOfWinnerHund == P_Rock) {
-		cout << "あなたは" << at * RockPower << "ダメージ受けた!" << endl;
+		cout << "あなたは" << at * RockPower * criticalBuff << "ダメージ受けた!" << endl;
 		cout << endl;
-		return at * RockPower;
+		return at * RockPower * criticalBuff;
 	}
 	else if (KindOfWinnerHund == P_Scissors) {
-		cout << "あなたは" << at * ScissorsPower << "ダメージ受けた!" << endl;
+		cout << "あなたは" << at * ScissorsPower * criticalBuff << "ダメージ受けた!" << endl;
 		cout << endl;
-		return at * ScissorsPower;
+		return at * ScissorsPower * criticalBuff;
 	}
 	else if (KindOfWinnerHund == P_Paper) {
-		cout << "あなたは" << at * PaperPower << "ダメージ受けた!" << endl;
+		cout << "あなたは" << at * PaperPower * criticalBuff << "ダメージ受けた!" << endl;
 		cout << endl;
-		return at * PaperPower;
+		return at * PaperPower * criticalBuff;
 	}
 }

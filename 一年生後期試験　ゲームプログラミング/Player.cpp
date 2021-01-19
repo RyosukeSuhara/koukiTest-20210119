@@ -1,5 +1,6 @@
 #include"Player.h"
 #include<iostream>
+#include<ctime>
 using namespace std;
 
 //現在のプレイヤーのステータス表示
@@ -42,22 +43,31 @@ Charactor::CharactorHund Player::ChooseHund() {
 }
 
 int Player::PlayerAttack(CharactorHund KindOfWinnerHund) {
+	srand(time(NULL));
+	int critical = rand() % 10;
+	int criticalBuff = 1;
+
 	cout << endl;
 	cout << "あなたのこうげき!" << endl;
+
+	if (critical == 7) {
+		cout << "会心の一撃だ！" << endl;
+		criticalBuff = 2;
+	}
 	if (KindOfWinnerHund == P_Rock) {
-		cout << "相手に" << at * RockPower << "ダメージ与えた!" << endl;
+		cout << "相手に" << at * RockPower * criticalBuff << "ダメージ与えた!" << endl;
 		cout << endl;
-		return at * RockPower;
+		return at * RockPower * criticalBuff;
 	}
 	else if (KindOfWinnerHund == P_Scissors) {
-		cout << "相手に" << at * ScissorsPower << "ダメージ与えた!" << endl;
+		cout << "相手に" << at * ScissorsPower * criticalBuff << "ダメージ与えた!" << endl;
 		cout << endl;
-		return at * ScissorsPower;
+		return at * ScissorsPower * criticalBuff;
 	}
 	else if (KindOfWinnerHund == P_Paper) {
-		cout << "相手に" << at * PaperPower << "ダメージ与えた!" << endl;
+		cout << "相手に" << at * PaperPower * criticalBuff << "ダメージ与えた!" << endl;
 		cout << endl;
-		return at * PaperPower;
+		return at * PaperPower * criticalBuff;
 	}
 }
 
