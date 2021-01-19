@@ -37,6 +37,7 @@ Charactor::CharactorHund CPU::AutoHund() {
 
 int CPU::CPUAttack(CharactorHund KindOfWinnerHund) {
 	srand(time(NULL));
+	//‰ïS‚ÌˆêŒ‚”»’è—p
 	int critical = rand() % 10;
 	int criticalBuff = 1;
 
