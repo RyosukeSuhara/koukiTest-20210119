@@ -2,6 +2,7 @@
 #include<iostream>
 using namespace std;
 
+//コンストラクタ
 Charactor::Charactor() {
 	hp = 100;
 	at = 5;
@@ -10,10 +11,12 @@ Charactor::Charactor() {
 	ScissorsPower = 3;
 }
 
+//ダメージを受ける関数
 void Charactor::Damage(int OpponentAttack) {
 	hp -= OpponentAttack;
 }
 
+//列挙体からint型に変換する関数
 int Charactor::ChangeNum(CharactorHund hund) {
 	if (hund == P_Rock) {
 		return 0;

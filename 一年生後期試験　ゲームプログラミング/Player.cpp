@@ -9,6 +9,7 @@ void Player::ShowStatusPlayer() {
 	cout << "手の攻撃力 グー" << RockPower << " チョキ" << ScissorsPower << " パー" << PaperPower << endl;
 }
 
+//出した手を表示する関数
 void Player::ShowHundPlayer(CharactorHund a) {
 	if (a == P_Rock) {
 		cout << "あなたの手はグーです" << endl;
@@ -21,6 +22,7 @@ void Player::ShowHundPlayer(CharactorHund a) {
 	}
 }
 
+//プレイヤーに出す手を決めてもらう関数
 Charactor::CharactorHund Player::ChooseHund() {
 	//CharactorHund型だとcinが機能しないため一度int型にしている
 	int setHund;
@@ -42,6 +44,8 @@ Charactor::CharactorHund Player::ChooseHund() {
 	}
 }
 
+//攻撃判定用の関数
+//１０％の確率でダメージが２倍になる
 int Player::PlayerAttack(CharactorHund KindOfWinnerHund) {
 	srand(time(NULL));
 	//会心の一撃判定用
@@ -72,6 +76,7 @@ int Player::PlayerAttack(CharactorHund KindOfWinnerHund) {
 	}
 }
 
+//プレイヤーに自分のキャラクターのステータスを決めてもらう関数
 void Player::DividedStatus() {
 	int rockNum;
 	int scissorsNum;

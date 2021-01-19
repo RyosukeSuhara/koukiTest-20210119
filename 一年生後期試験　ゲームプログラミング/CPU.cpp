@@ -3,11 +3,13 @@
 #include<ctime>
 using namespace std;
 
+//相手のステータスを表示する関数
 void CPU::ShowStatusCPU() {
 	cout << "対戦相手の現在のHP :" << hp << " AT :" << at << endl;
 	cout << "手の攻撃力 グー" << RockPower << " チョキ" << ScissorsPower << " パー" << PaperPower << endl;
 }
 
+//出した手を表示する関数
 void CPU::ShowHundCPU(CharactorHund a) {
 	if (a == P_Rock) {
 		cout << "対戦相手の手はグーです" << endl;
@@ -20,6 +22,7 @@ void CPU::ShowHundCPU(CharactorHund a) {
 	}
 }
 
+//手を自動で決める関数
 Charactor::CharactorHund CPU::AutoHund() {
 	srand(time(NULL));
 	int randomHund = rand() % 3;
@@ -35,6 +38,8 @@ Charactor::CharactorHund CPU::AutoHund() {
 	}
 }
 
+//攻撃判定をする関数
+//１０％の確率でダメージが２倍になる
 int CPU::CPUAttack(CharactorHund KindOfWinnerHund) {
 	srand(time(NULL));
 	//会心の一撃判定用
